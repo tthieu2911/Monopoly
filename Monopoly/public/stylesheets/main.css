@@ -36,9 +36,3 @@ a {
     color: #1abc9c !important;
     ;
 }
-
-/* Appear div */
-.fade-in-div {
-    position: absolute;
-    top: 40px;
-}

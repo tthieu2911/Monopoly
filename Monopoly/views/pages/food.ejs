@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('./../partials/head') %>
+</head>
+<body class="container">
+    <%- include ('./../partials/menu') %>
+
+    <h1>
+        <%= page %>
+    </h1>
+    <br>
+    <% if (message) { %>
+        <div class="alert alert-danger text-center" role="alert">
+            <%= message %>
+        </div>
+    <% } %>
+    <% if (success) { %>
+        <div class="alert alert-success text-center" role="alert">
+            <%= success %>
+        </div>
+    <% } %>
+
+    <div class="container-fluid">
+        <a id="btnCreate" href="/food/create">
+            <button type="button" class="btn btn-primary" title="Create Food"> Create 
+                <i class="fas fa-plus"></i>
+            </button>
+        </a>
+        <br />
+        <br />
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Quantity</th>
+                <th>Score</th>
+                <th>Created Date</th>
+                <th>Updated Date</th>
+                <th colspan="2">Action</th>
+            </tr>
+                <tbody>
+                <% result.forEach(function(item) { %>
+                    <tr>
+                        <td>
+                            <%= item.name %>
+                        </td>
+                        <td>
+                            <%= item.description %>
+                        </td>
+                        <td>
+                            <%= item.type %>
+                        </td>
+                        <td>
+                            <%= item.quantity %>
+                        </td>
+                        <td>
+                            <%= item.score %>
+                        </td>
+                        <td class="date-data">
+                            <%= item.createDate %>
+                        </td>
+                        <td class="date-data">
+                            <%= item.updateDate %>
+                        </td>
+                        <td class="text-center">
+                            <a id="btnEdit" href="/food/update/<%= item._id %>">
+                                <button type="button" class="btn btn-info" title="Update food"> Update
+                                    <i class="fas fa-edit""></i>
+                                </button>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a id="btnDelete" href="/food/delete/<%= item._id %>">
+                                <button type="button" class="btn btn-danger" title="Delete food"> Delete
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <%- include ('./../partials/footer') %>
+    </footer>
+</body>
+<%- include ('./../partials/script') %>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('./../partials/head') %>
+</head>
+
+<body class="container">
+    <%- include ('./../partials/menu') %>
+
+    <h1><%= page %></h1>
+    <br>
+    <% if (message) { %>
+        <div class="alert alert-danger text-center" role="alert">
+            <%= message %>
+        </div>
+    <% } %>
+
+    <div class="container-fluid">
+        <div id="dvDetail" class="container row" >
+            <% if (mode && mode == 'create') { %>
+            <form method="POST" action="/food/create">
+                <div class="container">
+                    <table class="table">
+                        <tr>
+                            <td>Name : </td>
+                            <td>
+                                <input type="text" name="ipName" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Description : </td>
+                            <td>
+                                <input type="text" name="ipDescription" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Type : </td>
+                            <td>
+                                <input type="number" name="ipType" min="0" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Quantity : </td>
+                            <td>
+                                <input type="number" name="ipQuantity" min="0" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Score : </td>
+                            <td>
+                                <input type="number" name="ipScore" min="0" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button type="submit" class="btn btn-primary">
+                                    Submit 
+                                    <i class="far fa-arrow-alt-circle-right"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            <% } %>
+
+            <% if (mode && mode == 'update') { %>
+            <% result.forEach(function(item) { %>
+            <form method="POST" action="/food/update/<%= item._id %>">
+                <div class="container">
+                    <table class="table">
+                        <tr>
+                            <td>Name : </td>
+                            <td>
+                                <input type="text" name="ipName" value="<%= item.name %>" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Description : </td>
+                            <td>
+                                <input type="text" name="ipDescription" value="<%= item.description %>" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Type : </td>
+                            <td>
+                                <input type="number" name="ipType" min="0" value="<%= item.type %>" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Quantity : </td>
+                            <td>
+                                <input type="number" name="ipQuantity" min="0" value="<%= item.quantity %>" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Score : </td>
+                            <td>
+                                <input type="number" name="ipScore" min="0" value="<%= item.score %>" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button type="submit" class="btn btn-primary">
+                                    Submit 
+                                    <i class="far fa-arrow-alt-circle-right"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            <% }); %>
+            <% } %>
+
+            <% if (mode && mode == 'delete') { %>
+            <% result.forEach(function(item) { %>
+            <form method="POST" action="/food/delete/<%= item._id %>">
+                <div class="container">
+                    <table class="table">
+                        <tr>
+                            <td>Name : </td>
+                            <td>
+                                <input type="text" name="ipName" value="<%= item.name %>" disabled />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Description : </td>
+                            <td>
+                                <input type="text" name="ipDescription" value="<%= item.description %>" disabled />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Type : </td>
+                            <td>
+                                <input type="number" name="ipType" min="0" value="<%= item.type %>" disabled />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Quantity : </td>
+                            <td>
+                                <input type="number" name="ipQuantity" min="0" value="<%= item.quantity %>" disabled />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Score : </td>
+                            <td>
+                                <input type="number" name="ipScore" min="0" value="<%= item.score %>" disabled />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button type="submit" class="btn btn-primary">
+                                    Submit 
+                                    <i class="far fa-arrow-alt-circle-right"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            <% }); %>
+            <% } %>
+        </div>
+    </div>
+    <footer>
+        <%- include ('./../partials/footer') %>
+    </footer>
+</body>
+<%- include ('./../partials/script') %>
+
+</html>

@@ -1,10 +1,9 @@
-
-$(document).ready('.date-data', function () {
+$(document).ready('.date-data', function() {
     var crDate = $(this).val();
     $(this).html(Date_to_String(crDate));
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
     var element = $('meta[name="active-menu"]').attr('content');
     $('#' + element).addClass('active');
 });
@@ -12,8 +11,7 @@ $(document).ready(function () {
 function Date_to_String(date_model) {
     if (date_model == null || date_model.length == 0) {
         return '';
-    }
-    else {
+    } else {
         var formated_date = new Date(date_model);
         var day = formated_date.getDate();
         var month = formated_date.getMonth() + 1;
@@ -24,12 +22,3 @@ function Date_to_String(date_model) {
         return return_format;
     }
 };
-
-/* Create button */
-$(document).ready('#btnCreate', 'click', function () {
-
-    $("#dvCreate").addClass('fade-in-div');
-    $("#dvCreate").fadeIn();
-
-})
-

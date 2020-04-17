@@ -1,0 +1,3 @@
+C:\Users\hieutt\Desktop\ExpressApp_1\ExpressApp\ExpressApp\obj\Debug\Monopoly.njsproj.CoreCompileInputs.cache
+C:\Users\hieutt\Desktop\ExpressApp_1\ExpressApp\ExpressApp\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\hieutt\Desktop\ExpressApp_1\ExpressApp\ExpressApp\obj\Debug\Monopoly.njsprojAssemblyReference.cache

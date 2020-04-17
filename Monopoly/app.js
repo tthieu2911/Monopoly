@@ -28,7 +28,7 @@ app.use('/', routes);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
@@ -39,12 +39,12 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://admin01:admin123@cluster0-avfsq.mongodb.net/Foody');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
+db.once('open', function() {
     // we're connected!
 });
 
 app.set('port', process.env.PORT || 3000);
 
-var server = app.listen(app.get('port'), function () {
+var server = app.listen(app.get('port'), function() {
     debug('Express server listening on port ' + server.address().port);
 });
