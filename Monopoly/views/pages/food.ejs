@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('./../partials/head') %>
+</head>
+<body class="container">
+    <%- include ('./../partials/menu') %>
+
+    <h1>
+        <%= page %>
+    </h1>
+    <br>
+    <% if (message) { %>
+        <div class="alert alert-danger text-center" role="alert">
+            <%= message %>
+        </div>
+    <% } %>
+    <% if (success) { %>
+        <div class="alert alert-success text-center" role="alert">
+            <%= success %>
+        </div>
+    <% } %>
+
+    <div class="container-fluid row">
+        <div class="col-sm-8">
+            <a id="btnCreate" type="button" class="btn btn-primary" title="Create Food" href="/food/create">
+                <i class="fas fa-plus"></i>
+                <span> Create </span>
+            </a>
+        </div>
+        <div class="col-auto">
+            <form method="POST" action="/food/search">
+                <div>
+                    <input type="text" name="ipFilter" />
+                    <button class="btn btn-primary" title="Search">
+                        <i class="fas fa-search fa-sm"></i>
+                        <span> Search </span> 
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br />
+    <div class="container-fluid row">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Quantity</th>
+                <th>Score</th>
+                <th>Created Date</th>
+                <th>Updated Date</th>
+                <th colspan="2">Action</th>
+            </tr>
+                <tbody>
+                <% result.forEach(function(item) { %>
+                    <tr>
+                        <td>
+                            <%= item.name %>
+                        </td>
+                        <td>
+                            <%= item.description %>
+                        </td>
+                        <td>
+                            <%= item.type %>
+                        </td>
+                        <td>
+                            <%= item.quantity %>
+                        </td>
+                        <td>
+                            <%= item.score %>
+                        </td>
+                        <td class="date-data">
+                            <%= item.createDate %>
+                        </td>
+                        <td class="date-data">
+                            <%= item.updateDate %>
+                        </td>
+                        <td class="text-center">
+                            <a id="btnEdit" type="button" class="btn btn-info" title="Update food" href="/food/update/<%= item._id %>">
+                                <i class="fas fa-edit"></i>
+                                <span> Update </span>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a id="btnDelete" type="button" class="btn btn-danger" title="Delete food" href="/food/delete/<%= item._id %>">
+                                <i class="fas fa-trash"></i>
+                                <span> Delete </span>
+                            </a>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <%- include ('./../partials/footer') %>
+    </footer>
+</body>
+<%- include ('./../partials/script') %>
+
+</html>
