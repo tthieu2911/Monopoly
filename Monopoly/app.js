@@ -35,8 +35,12 @@ app.use(function(req, res, next) {
 });
 
 // Database
+require('dotenv').config();
+var connectionString = 'mongodb+srv://' + process.env.DB_USERNAME + ':' + process.env.DB_PASSWORD + '@' + process.env.DB_CONNECT_URL + '/' + process.env.DB_NAME
+
 var mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://admin01:admin123@cluster0-avfsq.mongodb.net/Foody');
+mongoose.connect(connectionString);
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -44,6 +48,7 @@ db.once('open', function() {
 });
 
 app.set('port', process.env.PORT || 3000);
+console.log(process.env.PORT);
 
 var server = app.listen(app.get('port'), function() {
     debug('Express server listening on port ' + server.address().port);
