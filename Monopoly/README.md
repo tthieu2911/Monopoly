@@ -2,17 +2,17 @@
 
 ##  Công nghệ sử dụng
 ### DATABASE:
-    .	Ngôn ngữ:   MongoDB (NonSql)
+    .   Ngôn ngữ:   MongoDB (NonSql)
     .   Version:    
     .   Triển khai: https://www.mongodb.com/cloud
 
 ### SERVER:
-    .	Ngôn ngữ:   NodeJS
+    .   Ngôn ngữ:   NodeJS
     .   Version:    10.16.0 (Current)
     .   Triển khai: 
 
 ### CLIENT:
-    .	Ngôn ngữ:   ReactJS
+    .   Ngôn ngữ:   ReactJS
     .   Version:    react - 16.11.0, react-native - 0.62.2 (Current)
     .   Triển khai: 
 
