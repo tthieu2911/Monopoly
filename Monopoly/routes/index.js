@@ -14,7 +14,22 @@ router.get('/about', function (req, res, next) {
 });
 
 /* GET Food Collection */
-router.get('/food', ctrlfood.loadFoodCollection);
+/**
+ * @swagger
+ * /api/foods:
+ *   get:
+ *     tags:
+ *       - Foods
+ *     description: Returns all foods
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: An array of puppies
+ *         schema:
+ *           $ref: '#/definitions/Food'
+ */
+router.get('/foods', ctrlfood.loadFoodCollection);
 
 router.get('/food/create', function (req, res, next){
     //res.render('pages/food_create', { message: '', page: 'Create Food', mode:'create', menuId: 'home'})
